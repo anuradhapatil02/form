@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* height: 100vh; */
+            flex-direction: column;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .box {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            font-size: 16px;
+            margin-bottom: 8px;
+            display: block;
+            color: #333;
+        }
+
+        input[type="email"],
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        td {
+            background-color: #fafafa;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover td {
+            background-color: #f1f1f1;
+        }
+
+        /* Responsive Styling */
+        @media screen and (max-width: 768px) {
+            .box {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            input[type="email"],
+            input[type="text"],
+            input[type="number"],
+            select {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            button[type="submit"] {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            th, td {
+                padding: 10px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 18px;
+                margin-bottom: 15px;
+            }
+
+            input[type="email"],
+            input[type="text"],
+            input[type="number"],
+            select {
+                font-size: 12px;
+                padding: 8px;
+            }
+
+            button[type="submit"] {
+                font-size: 12px;
+                padding: 10px;
+            }
+
+            table {
+                font-size: 12px;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <form action="submit_form.php" method="post">
+                <h1>Student Information Form</h1>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required><br>
+
+                <label for="department">Department:</label>
+                <select id="department" name="department" required>
+                    <option value="">--Select Department--</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                    <option value="Civil Engineering">Civil Engineering</option>
+                    <option value="Electrical Engineering">Electrical Engineering</option>
+                    <option value="Information Technology">Information Technology</option>
+                </select><br>
+
+                <label for="class">Class:</label>
+                <select id="class" name="class" required>
+                    <option value="">--Select Class--</option>
+                    <option value="FY">First Year (FY)</option>
+                    <option value="SY">Second Year (SY)</option>
+                    <option value="TY">Third Year (TY)</option>
+                    <option value="LY">Last Year (LY)</option>
+                </select><br>
+
+                <label for="division">Division:</label>
+                <select id="division" name="division" required>
+                    <option value="">--Select Division--</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select><br>
+
+                <label for="rollNo">Roll Number:</label>
+                <input type="number" id="rollNo" name="rollNo" required><br>
+
+                <label for="prn">PRN:</label>
+                <input type="text" id="prn" name="prn" required><br>
+
+                <label for="cgpa">CGPA:</label>
+                <input type="number" id="cgpa" name="cgpa" step="0.01" min="0" max="10" required><br>
+
+                <h3>Open Elective Preferences</h3>
+                <p>Select your preferences for each subject from the list of available open electives:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Department</th>
+                            <th>Artificial Intelligence(1)</th>
+                            <th>Data Science(2)</th>
+                            <th>Cyber Security(3)</th>
+                            <th>IoT and Embedded Systems(4)</th>
+                            <th>Robotics(5)</th>
+                            <th>Blockchain Technology(6)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Computer Science</td>
+                            <td><input type="radio" name="cs_preference" value="Artificial Intelligence"></td>
+                            <td><input type="radio" name="cs_preference" value="Data Science"></td>
+                            <td><input type="radio" name="cs_preference" value="Cyber Security"></td>
+                            <td><input type="radio" name="cs_preference" value="IoT and Embedded Systems"></td>
+                            <td><input type="radio" name="cs_preference" value="Robotics"></td>
+                            <td><input type="radio" name="cs_preference" value="Blockchain Technology"></td>
+                        </tr>
+                        <tr>
+                            <td>Electronics</td>
+                            <td><input type="radio" name="electronics_preference" value="Artificial Intelligence"></td>
+                            <td><input type="radio" name="electronics_preference" value="Data Science"></td>
+                            <td><input type="radio" name="electronics_preference" value="Cyber Security"></td>
+                            <td><input type="radio" name="electronics_preference" value="IoT and Embedded Systems"></td>
+                            <td><input type="radio" name="electronics_preference" value="Robotics"></td>
+                            <td><input type="radio" name="electronics_preference" value="Blockchain Technology"></td>
+                        </tr>
+                        <tr>
+                            <td>Mechanical Engineering</td>
+                            <td><input type="radio" name="mech_preference" value="Artificial Intelligence"></td>
+                            <td><input type="radio" name="mech_preference" value="Data Science"></td>
+                            <td><input type="radio" name="mech_preference" value="Cyber Security"></td>
+                            <td><input type="radio" name="mech_preference" value="IoT and Embedded Systems"></td>
+                            <td><input type="radio" name="mech_preference" value="Robotics"></td>
+                            <td><input type="radio" name="mech_preference" value="Blockchain Technology"></td>
+                        </tr>
+                        <tr>
+                            <td>Civil Engineering</td>
+                            <td><input type="radio" name="civil_preference" value="Artificial Intelligence"></td>
+                            <td><input type="radio" name="civil_preference" value="Data Science"></td>
+                            <td><input type="radio" name="civil_preference" value="Cyber Security"></td>
+                            <td><input type="radio" name="civil_preference" value="IoT and Embedded Systems"></td>
+                            <td><input type="radio" name="civil_preference" value="Robotics"></td>
+                            <td><input type="radio" name="civil_preference" value="Blockchain Technology"></td>
+                        </tr>
+                        <tr>
+                            <td>Electrical Engineering</td>
+                            <td><input type="radio" name="electrical_preference" value="Artificial Intelligence"></td>
+                            <td><input type="radio" name="electrical_preference" value="Data Science"></td>
+                            <td><input type="radio" name="electrical_preference" value="Cyber Security"></td>
+                            <td><input type="radio" name="electrical_preference" value="IoT and Embedded Systems"></td>
+                            <td><input type="radio" name="electrical_preference" value="Robotics"></td>
+                            <td><input type="radio" name="electrical_preference" value="Blockchain Technology"></td>
+                        </tr>
+                        <tr>
+                            <td>Information Technology</td>
+                            <td><input type="radio" name="it_preference" value="Artificial Intelligence"></td>
+                            <td><input type="radio" name="it_preference" value="Data Science"></td>
+                            <td><input type="radio" name="it_preference" value="Cyber Security"></td>
+                            <td><input type="radio" name="it_preference" value="IoT and Embedded Systems"></td>
+                            <td><input type="radio" name="it_preference" value="Robotics"></td>
+                            <td><input type="radio" name="it_preference" value="Blockchain Technology"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
